@@ -10,6 +10,10 @@ import io
 
 app = FastAPI(title="API Ventas G24")
 
+@app.get("/ping")
+def ping():
+    return {"ok": True}
+
 # CORS para permitir tu PWA
 app.add_middleware(
     CORSMiddleware,
@@ -398,4 +402,5 @@ def exportar_ventas_excel(
         )
 
     except Exception as e:
+
         return JSONResponse({"error": f"Error al generar Excel: {str(e)}"}, status_code=500)
