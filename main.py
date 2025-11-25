@@ -5,7 +5,6 @@ import mysql.connector
 from datetime import datetime
 from decimal import Decimal
 from fastapi.responses import StreamingResponse
-import pandas as pd
 import io
 
 app = FastAPI(title="API Ventas G24")
@@ -404,3 +403,4 @@ def exportar_ventas_excel(
     except Exception as e:
 
         return JSONResponse({"error": f"Error al generar Excel: {str(e)}"}, status_code=500)
+
